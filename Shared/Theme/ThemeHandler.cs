@@ -1,12 +1,12 @@
-﻿using BlazorDemo.Shared.Theme.Triona;
+﻿using BlazorDemo.Web.Shared.Theme.Triona;
 using MudBlazor;
 
-namespace BlazorDemo.Shared.Theme;
+namespace BlazorDemo.Web.Shared.Theme;
 
 public class ThemeHandler : IThemeHandler
 {
     public MudTheme GetTheme()
     {
-        return TrionaColors.GetTrionaLightModeTheme();
+        return TrionaColors.GetTrionaTheme();
     }
 }

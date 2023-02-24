@@ -1,0 +1,17 @@
+﻿@using BlazorDemo.Common.Web.ViewModels
+<MudTable Striped="true" Style="Width: 100%; margin-top: 10px" Items="Employees" Hover="true" OnRowClick="async (x) => await SelectEmployee(x)" T="EmployeeViewModel">
+    <HeaderContent>
+        <MudTh>First name</MudTh>
+        <MudTh>Last name</MudTh>
+        <MudTh>Title</MudTh>
+        <MudTh>Employee rating</MudTh>
+        <MudTh>Preferred UI Framework</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.FirstName</MudTd>
+        <MudTd>@context.LastName</MudTd>
+        <MudTd>@context.Title</MudTd>
+        <MudTd><MudRating SelectedValue="@context.EmployeeRating" ReadOnly="true"></MudRating></MudTd>
+        <MudTd>@context.PrefferedUiFramework</MudTd>
+    </RowTemplate>
+</MudTable>

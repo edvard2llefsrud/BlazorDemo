@@ -1,5 +1,4 @@
-﻿@using BlazorDemo.Shared.Theme
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
 
 <PageTitle>BlazorDemo</PageTitle>
 
@@ -10,14 +9,14 @@
 <MudLayout>
     <MudAppBar Elevation="5">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleDrawer" />
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor" Target="_blank" />
+        
     </MudAppBar>
     <MudDrawer ClipMode="DrawerClipMode.Docked" @bind-Open="@open" Elevation="1">
         <MudDrawerHeader>
-            <MudText Typo="Typo.h6">My App</MudText>
+            <img src="/Images/TrionaLogo.svg" width="200px" height="100px"/>
         </MudDrawerHeader>
         <MudNavMenu>
+            <MudText Typo="Typo.h6">My App</MudText>
             @*<MudNavLink Match="NavLinkMatch.All">Store</MudNavLink>
             <MudNavLink Match="NavLinkMatch.All">Library</MudNavLink>
             <MudNavLink Match="NavLinkMatch.All">Community</MudNavLink>*@
@@ -27,15 +26,3 @@
         @Body
     </MudMainContent>
 </MudLayout>
-
-@code{
-
-    [Inject] private IThemeHandler themeHandler { get; set; }
-
-    bool open = false;
-
-    void ToggleDrawer()
-    {
-        open = !open;
-    }
-}

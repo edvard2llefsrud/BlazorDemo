@@ -1,5 +1,5 @@
-using BlazorDemo.Data;
-using BlazorDemo.Shared.Theme;
+using BlazorDemo.Common.Web.Repository;
+using BlazorDemo.Web.Shared.Theme;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using MudBlazor.Services;
@@ -9,9 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddMudServices();
 builder.Services.AddSingleton<IThemeHandler, ThemeHandler>();
+builder.Services.AddSingleton<IMockEmployeeRepository, MockEmployeeRepository>();
 
 var app = builder.Build();
 

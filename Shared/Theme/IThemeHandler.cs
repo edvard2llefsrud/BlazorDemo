@@ -1,6 +1,6 @@
 ﻿using MudBlazor;
 
-namespace BlazorDemo.Shared.Theme;
+namespace BlazorDemo.Web.Shared.Theme;
 
 public interface IThemeHandler
 {

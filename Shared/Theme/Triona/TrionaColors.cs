@@ -1,9 +1,9 @@
-﻿using MudBlazor.Utilities;
-using System.Drawing;
+﻿using System.Drawing;
 using MudBlazor;
+using MudBlazor.Utilities;
 using Color = System.Drawing.Color;
 
-namespace BlazorDemo.Shared.Theme.Triona;
+namespace BlazorDemo.Web.Shared.Theme.Triona;
 
 public static class TrionaColors
 {
@@ -36,7 +36,7 @@ public static class TrionaColors
         return new MudColor(c.R, c.G, c.B, c.A);
     }
 
-    public static MudTheme GetTrionaLightModeTheme()
+    public static MudTheme GetTrionaTheme()
     {
         return new MudTheme()
         {
@@ -53,7 +53,8 @@ public static class TrionaColors
                 TertiaryContrastText = ToMudColor(OnSecondary),
                 Info = ToMudColor(SecondaryVariant1),
                 InfoContrastText = ToMudColor(OnPrimary),
-                Success = ToMudColor(Gray80)
+                Success = ToMudColor(Gray80),
+
             },
             PaletteDark = new PaletteDark() {Primary = Colors.Blue.Lighten1},
             LayoutProperties = new LayoutProperties() {DrawerWidthLeft = "260px", DrawerWidthRight = "300px"}

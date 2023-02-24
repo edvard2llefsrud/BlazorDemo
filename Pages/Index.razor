@@ -1,8 +1,25 @@
 ﻿@page "/"
+@using BlazorDemo.Web.Pages.Components
 
-<PageTitle>Index</PageTitle>
+@if (ApiCallIsRunning)
+{
+    <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+        <MudSkeleton Animation="Animation.Wave" SkeletonType="SkeletonType.Rectangle" Width="100%" Height="50px" />
+        <br/>
+        <MudSkeleton Animation="Animation.Wave" SkeletonType="SkeletonType.Rectangle" Width="100%" Height="50px" />
+        <br/>
+        <MudSkeleton Animation="Animation.Wave" SkeletonType="SkeletonType.Rectangle" Width="100%" Height="200px" />
+    </MudContainer>
+}
+else
+{
+    <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+        <EmployeeTable Employees="@employees" SelectedEmployeeCallback="EmployeeClicked"></EmployeeTable>
+    </MudContainer>
 
-<h1>Hello, world!</h1>
+    <MudOverlay @bind-Visible="DisplayEmployeeModal" DarkBackground="true" AutoClose="true">
+        <EmployeeModal SelectedEmployee="selectedEmployee"></EmployeeModal>
+    </MudOverlay>
+}
 
-Welcome to your new app.
 
