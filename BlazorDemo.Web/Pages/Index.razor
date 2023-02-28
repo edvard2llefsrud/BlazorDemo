@@ -14,11 +14,11 @@
 else
 {
     <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
-        <EmployeeTable Employees="@employees" SelectedEmployeeCallback="EmployeeClicked"></EmployeeTable>
+        <EmployeeTable Employees="@employees" SelectedEmployeeCallback="EmployeeClicked"/>
     </MudContainer>
 
     <MudOverlay @bind-Visible="DisplayEmployeeModal" DarkBackground="true" AutoClose="true">
-        <EmployeeModal SelectedEmployee="selectedEmployee"></EmployeeModal>
+        <EmployeeDetailsModal SelectedEmployee="selectedEmployee"/>
     </MudOverlay>
 }
 

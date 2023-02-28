@@ -5,42 +5,51 @@ namespace BlazorDemo.Common.Web.Repository;
 
 public class MockEmployeeRepository : IMockEmployeeRepository
 {
-    public async Task<ApiResult<List<EmployeeViewModel>>> GetEmployees()
-    {
-        await Task.Delay(10000);
+    private List<EmployeeViewModel> employees;
 
-        return new ApiResult<List<EmployeeViewModel>>(ApiMethodType.Get)
+    public MockEmployeeRepository()
+    {
+        this.employees = new List<EmployeeViewModel>()
         {
-            Result = new List<EmployeeViewModel>()
+            new()
             {
-                new()
-                {
-                    FirstName = "Øyvind",
-                    LastName = "Sannerhaugen",
-                    Office = "Oslo",
-                    Title = "Senior Developer",
-                    EmployeeRating = 4,
-                    PreferedUiFramework = UiFramework.Blazor
-                },
-                new()
-                {
-                    FirstName = "Borger",
-                    LastName = "Storholt",
-                    Office = "Oslo",
-                    Title = "Senior Developer",
-                    EmployeeRating = 5,
-                    PreferedUiFramework = UiFramework.React
-                },
-                new()
-                {
-                    FirstName = "Edvard",
-                    LastName = "Tollefsrud",
-                    Office = "Oslo",
-                    Title = "Junior Developer",
-                    EmployeeRating = 2,
-                    PreferedUiFramework = UiFramework.Blazor
-                }
+                FirstName = "Øyvind",
+                LastName = "Sannerhaugen",
+                Office = "Oslo",
+                Title = "Senior Developer",
+                EmployeeRating = 4,
+                PreferedUiFramework = UiFramework.Blazor
+            },
+            new()
+            {
+                FirstName = "Borger",
+                LastName = "Storholt",
+                Office = "Oslo",
+                Title = "Senior Developer",
+                EmployeeRating = 5,
+                PreferedUiFramework = UiFramework.React
+            },
+            new()
+            {
+                FirstName = "Edvard",
+                LastName = "Tollefsrud",
+                Office = "Oslo",
+                Title = "Junior Developer",
+                EmployeeRating = 2,
+                PreferedUiFramework = UiFramework.Blazor
             }
         };
     }
+
+    public async Task<ApiResult<List<EmployeeViewModel>>> GetEmployees()
+    {
+        await Task.Delay(5000);
+
+        return new ApiResult<List<EmployeeViewModel>>(ApiMethodType.Get)
+        {
+            Result = employees
+        };
+    }
+
+
 }
