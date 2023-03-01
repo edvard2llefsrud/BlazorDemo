@@ -17,8 +17,14 @@ else
         <EmployeeTable Employees="@employees" SelectedEmployeeCallback="EmployeeClicked"/>
     </MudContainer>
 
-    <MudOverlay @bind-Visible="DisplayEmployeeModal" DarkBackground="true" AutoClose="true">
+    <MudButton OnClick="@OpenAddEmployeeModal" Variant="Variant.Filled">+ Add</MudButton>
+
+    <MudOverlay @bind-Visible="DisplayEmployeeDetailsModal" DarkBackground="true" AutoClose="true">
         <EmployeeDetailsModal SelectedEmployee="selectedEmployee"/>
+    </MudOverlay>
+
+    <MudOverlay @bind-Visible="DisplayAddEmployeeModal" DarkBackground="true">
+        <AddEmployeeModal AddEmployeeCallback="AddEmployee"></AddEmployeeModal>
     </MudOverlay>
 }
 

@@ -1,0 +1,15 @@
+﻿@using BlazorDemo.Common.Web.ViewModels
+<MudCard>
+    <MudTextField T="string" @bind-Value="newEmployee.FirstName" Label="First name"></MudTextField>
+    <MudTextField T="string" @bind-Value="newEmployee.LastName" Label="Last name"></MudTextField>
+    <MudTextField T="string" @bind-Value="newEmployee.Title" Label="Title"></MudTextField>
+    <MudTextField T="string" @bind-Value="newEmployee.Office" Label="Office"></MudTextField>
+    <MudRating @bind-SelectedValue="newEmployee.EmployeeRating" MaxValue="5"></MudRating>
+    <MudSelect Label="Preferred UI Framework" @bind-Value="newEmployee.PreferedUiFramework">
+        @foreach (UiFramework ui in Enum.GetValues(typeof(UiFramework)))
+        {
+            <MudSelectItem Value="ui">@ui</MudSelectItem>
+        }
+    </MudSelect>
+    <MudButton Variant="Variant.Filled" OnClick="@(async() => await this.AddEmployee())">Add</MudButton>
+</MudCard>

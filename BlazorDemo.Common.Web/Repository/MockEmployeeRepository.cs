@@ -43,7 +43,7 @@ public class MockEmployeeRepository : IMockEmployeeRepository
 
     public async Task<ApiResult<List<EmployeeViewModel>>> GetEmployees()
     {
-        await Task.Delay(5000);
+        //await Task.Delay(5000);
 
         return new ApiResult<List<EmployeeViewModel>>(ApiMethodType.Get)
         {
